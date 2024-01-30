@@ -1,0 +1,230 @@
+import streamlit as st
+from PIL import Image
+
+
+# st.set_page_config(layout="wide")
+st.title("Climate Analysis")
+with st.container():
+    st.markdown(
+        """
+        My primary aim is to delve into the intricate dynamics of climate change, examining its profound impact on temperatures, natural disasters, and the resulting economic consequences. I firmly believe that a comprehensive understanding of climate change not only equips us to confront its challenges but also paves the way for a brighter future for generations to come.
+        
+        Furthermore, I am dedicated to scrutinizing the repercussions of climate change specifically within my homeland, India. Given the rapid growth of India's population, coupled with escalating urbanization and resource exploitation, it becomes imperative to grasp the implications of climate change in this context.
+        
+        This endeavor serves as my contribution to social good for the EduHacks hackathon 2023. I am optimistic that this project will play a vital role in fostering awareness and concern regarding climate change, contributing to a collective effort toward sustainable and informed action.
+        
+        ## Intro
+        
+        Climate change is one of the major challenges of our time. This change is impacting local climates all around the world. In this project, we will examine temperature change in India and its different sub-national units. The purpose of this project is to unveil the impacts of climate change and manifest them through visualizations and analyses. Let us first learn more about climate change, its causes and its effects.
+        
+        ### What is climate change?
+        
+        "Climate change refers to long-term shifts in temperatures and weather patterns. These shifts may be natural, such as through variations in the solar cycle. But since the 1800s, human activities have been the main driver of climate change, primarily due to burning fossil fuels like coal, oil and gas."
+        
+        ### What are its causes?
+        
+        "The cause of current climate change is largely human activity, like burning fossil fuels, like natural gas, oil, and coal. Burning these materials releases what are called greenhouse gases into Earth’s atmosphere. There, these gases trap heat from the sun’s rays inside the atmosphere causing Earth’s average temperature to rise. This rise in the planet's temperature is called global warming. The warming of the planet impacts local and regional climates. Throughout Earth's history, climate has continually changed. When occurring naturally, this is a slow process that has taken place over hundreds and thousands of years. The human-influenced climate change that is happening now is occurring at a much faster rate."
+        
+        ### What are its effects?
+        
+        "Global climate change has already had observable effects on the environment. Glaciers have shrunk, ice on rivers and lakes is breaking up earlier, plant and animal ranges have shifted and trees are flowering sooner. Effects that scientists had predicted in the past would result from global climate change are now occurring: loss of sea ice, accelerated sea-level rise and longer, more intense heat waves."
+        """
+    )
+# Section 1: Introduction to Decentraland
+with st.container():
+    st.markdown("## Global Temperature")
+    st.markdown(
+        """
+    I calculated the mean temperature of the 1951 - 1980 period to establish the global base mean temperature. This is standard practice in climate In climate science, temperature anomaly represents temperature pattern accurately than absolute temperature. It is a measure of the departure from baseline temperature. Basically, it indicates how much warmer or cooler it is than the baseline. The baseline used here is the average temperature over the 30 year period 1951-1980 (base period used by NASA).
+    """
+    )
+    image_path = "images/global_temp.png"
+    image = Image.open(image_path)
+    st.image(image)
+    st.markdown(
+        """
+    Plotting the temperature anomaly over the years, clearly indicates the warming of Earth. The warming is more pronounced from about 1920 onwards. In 2015, the Earth is 0.76 degree Celsius warmer than the normal. The result above confirms the scientific consensus that the Earth is warming.
+    
+    *Source: [Berkeley Earth Dataset](https://www.kaggle.com/datasets/berkeleyearth/climate-change-earth-surface-temperature-data)*
+    """
+    )
+
+    st.markdown("## CO2 levels")
+    st.markdown(
+        """
+    Using the [UC San Diego Carbon Dioxide dataset](https://www.kaggle.com/datasets/ucsandiego/carbon-dioxide), I have plotted the Global Annual CO2 levels in atmosphere. We will analyse the correlation between temperature and CO2 levels later.
+    """
+    )
+    image_path = "images/global_annual_co2.png"
+    image = Image.open(image_path)
+    st.image(image)
+    st.markdown(
+        """
+    The CO2 levels in atmosphere have steadily risen in the 1950-2010 period, indicating a linear relation between greenhouse gases and global temperature.
+    
+    On calculating, the correlation coefficient of CO2 and temperature anomaly is 0.92 , confirming the linear relation between the two variables. 
+    This scatter plot visualizes the linear relation between CO2 levels and temperature anomaly.
+    """
+    )
+    image_path = "images/scatter_1.png"
+    image = Image.open(image_path)
+    st.image(image)
+
+    st.markdown("## Natural Disasters")
+    st.markdown(
+        """
+    To understand the correlation between climate change and natural disasters, we will perform EDA analysis on [Natural Disaster Data](https://www.kaggle.com/datasets/dataenergy/natural-disaster-data)
+    """
+    )
+    image_path = "images/natural_disast.png"
+    image = Image.open(image_path)
+    st.image(image)
+    st.markdown(
+        """
+    The bar plot above with individual stacks for each disaster category shows that the occurrence of floods has significantly increased over the years relative to other disasters. The next highest increase in occurrence is that of extreme weather followed by earthquakes. The plot also shows that there has been a steady increase in the number of total natural disasters globally. This is more evident from the plot below.
+    """
+    )
+    image_path = "images/natural_disast_2.png"
+    image = Image.open(image_path)
+    st.image(image)
+    st.markdown(
+        """
+    The above plot indicates a positive correlation between temperature anomaly and the occurrence of natural disasters. Especially after around 1940 when it starts becoming warmer than the normal, natural disasters also start rising globally.
+
+    Let's also investigate the economic damage caused by natural disasters.
+    
+    ### Economic Damage
+    """
+    )
+    image_path = "images/natural_disast_3.png"
+    image = Image.open(image_path)
+    st.image(image)
+    st.markdown(
+        """
+    Economic damage is highly variable as it depends on several factors such as the disaster type, disaster location, severity of the disaster, disaster management efforts, etc.
+
+    However, one key trend that stands out from the plot is that the total economic damage from all the disasters is generally increasing over the years. The main reason is the increase in disaster occurrences (correlated with global temperature rise), although all disasters don't contribute equally to the economic damage. Another reason for higher economic damage could be the overall increase in economic growth which leads to more infrastructure, land use, etc.
+    
+    ### Correlation Heatmap
+    """
+    )
+    image_path = "images/corr_new.png"
+    image = Image.open(image_path)
+    st.image(image)
+    st.markdown(
+        """
+    The heatmap and the correlation values confirm our analysis from the previous plots that global temperature rise has a strong positive correlation with all types of natural disaster occurrences (except mass movement (dry)) and has a relatively lower correlation with economic damage.
+    """
+    )
+
+    st.markdown(
+        """
+    # Climate Change in India
+    
+    A baseline period is needed to define the observed climate with which climate change information is usually combined to create a climate scenario. The IPCC Data Distribution Centre (IPCC DDC) suggests the period 1961-1990 to be used as the baseline period. This period has generally good observed data and it represents the recent climate to which many present-day human or natural systems are likely to be reasonably well adapted.
+    
+    ## 10 Most Affected States/Union Territories 
+    
+    - Lakshadweep suffered the most from temperature change in the last decade. Lakshadweep is a tropical archipelago (an extensive group of islands). Andaman and Nicobar Islands is another archipelago on the list. It is already well known that islands are more vulnerable to and threatened by the effects of climate change.
+    - Tamil Nadu, Kerala and Puducherry are all coastal regions in the southern part of the country. Climate change threatens coastal areas, which are already stressed by human activity, pollution, invasive species, and storms.
+    - Himachal Pradesh, Uttarakhand, Delhi, Chandigarh and Haryana are regions in the north of India. North India has been witnessing frequent heatwaves and high temperatures in the recent past.
+    """
+    )
+    image_path = "images/india_1.png"
+    image = Image.open(image_path)
+    st.image(image)
+
+    st.markdown(
+        """
+    ## 10 Least Affected States/Union Territories 
+    
+    - Tripura, Mizoram, Meghalaya, Manipur and Assam form most of the North-East and are among the states which experienced the least temperature change in the country.
+    - West Bengal, Jharkhand, Orissa and Bihar are eastern states of India while Chhattisgarh lies in the central part.
+    """
+    )
+
+    image_path = "images/india_2.png"
+    image = Image.open(image_path)
+    st.image(image)
+
+    st.markdown(
+        """
+    ## Zone-wise Temperature Change
+    
+    - The southern zone experienced the maximum temperature change. All the states in this region touch the coastline of India. Lakshadweep and Andaman & Nicobar Islands also lie in this region. Islands and coastal regions are relatively more vulnerable to the effects of climate change.
+    - The northern zone is second on the list. The northern region has been witnessing frequent heatwaves and high temperatures in the recent past.
+    - The western and central parts witnessed temperature changes greater than 0.5 °C.
+    - The eastern and north-eastern states have experienced the least change in terms of temperature. The northeastern part of India is known for its diverse and most extensive lush forest cover. The India State of Forests Report (ISFR) 2021, released by the Ministry of Environment, revealed that the forest cover in the eight north eastern states accounts for 23.75% of the total forest cover of the country
+    """
+    )
+
+    image_path = "images/zone-wise_india.png"
+    image = Image.open(image_path)
+    st.image(image)
+
+    st.markdown(
+        """
+        
+    ## Overall Trend of Temperature Change
+    
+    - It is evident from the bar graph that the value for temperature change has continuously increased between 1901 and 2020. A positive change in temperature means that the temperature has risen.
+    - The maximum annual temperature change (Mean Annual Temperature Change) of 1.12 °C was witnessed in 2009, while the minimum was experienced in 1917 with a change of -0.88 °C.
+    - A relatively erratic increase in temperature can also be noticed in the graph in the last two decades (2001-2020).
+    - Hence, it can be concluded that India has seen a continuous rise in temperature between 1901-2020.
+
+    """
+    )
+
+    image_path = "images/india_3.png"
+    image = Image.open(image_path)
+    st.image(image)
+
+    st.markdown(
+        """
+    ## Seasonal Temperature Change
+    
+    - In the graph, the Monsoon season has a relatively smoother line with fewer fluctuations and small peaks.
+    - Winter, summer and post-monsoon have more fluctuant lines than monsoon.
+    - Winter has witnessed the most erratic changes in temperature with abruptly high peaks.
+    - In addition, the hottest winter with maximum temperature change was in 2009 and the summer of 2010 was the second hottest season.
+    """
+    )
+
+    image_path = "images/india_4_dark.png"
+    image = Image.open(image_path)
+    st.image(image)
+
+    st.markdown(
+        """
+    ### Climate Spiral
+    
+    The following is a visualization that presents monthly temperature anomalies in India between 1901-2020.
+    """
+    )
+    video_file = open("images/climate_spiral.mp4", "rb")
+    video_bytes = video_file.read()
+    st.video(video_bytes)
+
+    st.markdown(
+        """
+    ## Air Temperature in Major Indian Cities
+    
+    The plot below contains the yearly trend in the four major cities of India.
+    """
+    )
+
+    image_path = "images/avg_tmp_india_yearly_cities.png"
+    image = Image.open(image_path)
+    st.image(image)
+
+    st.markdown(
+        "From the plot, Chennai being the hottest city(among the 4 cities in the dataset) followed by Mumbai."
+    )
+
+    image_path = "images/average_temp_month_cities.png"
+    image = Image.open(image_path)
+    st.image(image)
+
+    st.markdown(
+        "Interesting insight here is that during summer Delhi shows the maximum temperature and during winter Delhi again shows minimum temperature. Since, Delhi shows both extremes which results in balance in its average temperature"
+    )
