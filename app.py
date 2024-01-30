@@ -8,10 +8,22 @@ with st.container():
     st.markdown(
         """
         My primary aim is to delve into the intricate dynamics of climate change, examining its profound impact on temperatures, natural disasters, and the resulting economic consequences. I firmly believe that a comprehensive understanding of climate change not only equips us to confront its challenges but also paves the way for a brighter future for generations to come.
-        
+
         Furthermore, I am dedicated to scrutinizing the repercussions of climate change specifically within my homeland, India. Given the rapid growth of India's population, coupled with escalating urbanization and resource exploitation, it becomes imperative to grasp the implications of climate change in this context.
-        
+
         This endeavor serves as my contribution to social good for the EduHacks hackathon 2023. I am optimistic that this project will play a vital role in fostering awareness and concern regarding climate change, contributing to a collective effort toward sustainable and informed action.
+        
+        ## Content
+        - [Intro](#into)
+        - [Global Temperature](#global-temperature)
+        - [CO2-Levels](#co2-levels)
+        - [Natural Disasters](#natural-disasters) , [Economic Damage](#economic-damage) , [Correlation Heatmap](#correlation-heatmap)
+        - [Climate Change in India](#climate-change-in-india)
+        - [10 Most Affected States](#10-most-affected-states-union-territories) , [10 Least Affected States](#10-least-affected-states-union-territories) , [Zone-wise](#zone-wise-temperature-change)
+        - [Seasonal Temperature Change in India](##seasonal-temperature-change) , [Overall Trend in India](##overall-trend-of-temperature-change)
+        - [Climate Spiral](#climate-spiral)
+        - [Effect in Major Cities in India](#air-temperature-in-major-indian-cities)
+        - [Temperature Change Visualization WebGL Globe](#temperature-change-webgl-globe)
         
         ## Intro
         
@@ -227,4 +239,20 @@ with st.container():
 
     st.markdown(
         "Interesting insight here is that during summer Delhi shows the maximum temperature and during winter Delhi again shows minimum temperature. Since, Delhi shows both extremes which results in balance in its average temperature"
+    )
+
+    st.markdown(
+        """
+    ## Temperature Change WebGL Globe
+    
+    This is a webgl-globe created inspired by google chome experiments used to visualize surface temperature anomalies over the past century.
+    
+    - This globe shows the average temperature anomalies over land between the years of 1910 and 2019 in decades. Temperature anomalies are defined by the difference in temperature at that location between at a given period in time and the average temperature between the years of 1951 and 1980 (chosen by NASA).
+    
+    - The color and height of the spikes are jointly scaled to show how much average temperature has changed from the 1951-1980 average. Blues and purples, shows temperatures cooler than the average while reds, yellows and oranges show temperatures warmer than the average.
+    
+    View the the globe [here](http://127.0.0.1:8080/webgl_globe.html).
+    
+    *Data Source: [NASA GISS](https://data.giss.nasa.gov/gistemp/)*
+    """
     )
