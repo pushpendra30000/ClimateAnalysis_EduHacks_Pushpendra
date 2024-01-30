@@ -2,6 +2,12 @@
 
 Link to YouTube video: [Video](https://youtu.be/B-_KX3NOZVk)
 
+## How to run
+
+- `streamlit run app.py`
+- Go to the temp_globe folder: `cd temp_globe`
+- Run http server: `http-server`
+
 My primary aim is to delve into the intricate dynamics of climate change, examining its profound impact on temperatures, natural disasters, and the resulting economic consequences. I firmly believe that a comprehensive understanding of climate change not only equips us to confront its challenges but also paves the way for a brighter future for generations to come.
 
 Furthermore, I am dedicated to scrutinizing the repercussions of climate change specifically within my homeland, India. Given the rapid growth of India's population, coupled with escalating urbanization and resource exploitation, it becomes imperative to grasp the implications of climate change in this context.
